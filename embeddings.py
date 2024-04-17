@@ -43,6 +43,8 @@ class Embeddings:
         :return: A 2D array of shape (len(words), embedding_size) where
             for each i, the ith row is the embedding for words[i]
         """
+        if isinstance(words, str):
+            words = [words]
         return self.vectors[[self.indices[w] for w in words]]
 
     @classmethod
